@@ -1,0 +1,24 @@
+# General
+druid.service=${DRUID_SERVICE}
+druid.host=${DRUID_HOST}
+druid.worker.ip=${DRUID_HOST}
+druid.port=8091
+
+# Indexing
+druid.worker.capacity=2
+druid.indexer.runner.startPort=7081
+
+# Processing
+druid.indexer.fork.property.druid.server.http.numThreads=10
+druid.indexer.fork.property.druid.processing.buffer.sizeBytes=1
+druid.indexer.fork.property.druid.processing.numThreads=262144000
+
+# Logging
+druid.indexer.logs.type=s3
+druid.indexer.logs.s3Bucket=${S3_BUCKET}
+druid.indexer.logs.s3Prefix=druid-indexer-logs
+druid.monitoring.monitors=["com.metamx.metrics.JvmMonitor", "io.druid.server.metrics.EventReceiverFirehoseMonitor"]
+
+# Peon
+druid.indexer.task.restoreTasksOnRestart=true
+druid.indexer.runner.javaOpts=-XX:MaxPermSize=256m -server -XX:+UseG1GC -Xmx512m -Xms512m -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -Djava.rmi.server.hostname=${DRUID_HOST} -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.port=8092 -Dcom.sun.management.jmxremote.local.only=false -Djava.net.preferIPv4Stack=true -XX:MaxDirectMemorySize=512m 

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: druid-overlord-svc
+  labels:
+    app: druid-overlord
+spec:
+  ports:
+  - name: client
+    port: 8084
+    protocol: TCP
+  selector:
+    app: druid
+    component: druid-overlord
