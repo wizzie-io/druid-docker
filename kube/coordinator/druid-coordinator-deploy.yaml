@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: druid-coordinator
-        image: gcr.io/stream-150408/druid-coordinator:0.9.1.1-5
+        image: gcr.io/stream-150408/druid-coordinator:0.9.1.1-26
         ports:
         - containerPort: 8081
         env:

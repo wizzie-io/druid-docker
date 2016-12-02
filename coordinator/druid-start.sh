@@ -1,1 +1,0 @@
-../druid-start.sh

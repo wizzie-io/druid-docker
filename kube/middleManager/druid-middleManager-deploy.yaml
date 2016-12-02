@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: druid-middlemanager
-        image: gcr.io/stream-150408/druid-middlemanager:0.9.1.1-5
+        image: gcr.io/stream-150408/druid-middlemanager:0.9.1.1-26
         ports:
         - containerPort: 8084
         env:

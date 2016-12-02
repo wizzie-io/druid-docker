@@ -15,8 +15,8 @@ druid.broker.cache.unCacheable=["select"]
 druid.monitoring.monitors=["io.druid.client.cache.CacheMonitor", "com.metamx.metrics.JvmMonitor"]
 
 # Processing
-druid.processing.numThreads=1
-druid.processing.buffer.sizeBytes=262144000
+druid.processing.numThreads=3
+druid.processing.buffer.sizeBytes=1073741824
 
 # Queries
 druid.query.groupBy.singleThreaded=false

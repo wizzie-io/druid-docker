@@ -3,7 +3,6 @@ druid.service=${DRUID_SERVICE}
 druid.host=${DRUID_HOST}
 druid.port=8083
 druid.server.http.numThreads=10
-druid.server.tier=_default
 
 druid.server.maxSize=10737418240
 druid.segmentCache.locations=[{"path": "/tmp", "maxSize": 10737418240}]
@@ -16,6 +15,6 @@ druid.historical.cache.unCacheable=["select"]
 druid.monitoring.monitors=["io.druid.client.cache.CacheMonitor", "com.metamx.metrics.JvmMonitor", "io.druid.server.metrics.HistoricalMetricsMonitor"]
 
 # Processing
-druid.processing.numThreads=1
-druid.processing.buffer.sizeBytes=262144000
+druid.processing.numThreads=3
+druid.processing.buffer.sizeBytes=536870912
 druid.query.topN.minTopNThreshold=100

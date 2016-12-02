@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: druid-broker
-        image: gcr.io/stream-150408/druid-broker:0.9.1.1-5
+        image: gcr.io/stream-150408/druid-broker:0.9.1.1-26
         ports:
         - containerPort: 8080
         env:

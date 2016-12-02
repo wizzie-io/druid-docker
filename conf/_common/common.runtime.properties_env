@@ -5,7 +5,7 @@ druid.selectors.coordinator.serviceName=coordinator
 # Extensions
 druid.extensions.directory=${DRUID_HOME}/extensions
 druid.extensions.hadoopDependenciesDir=${DRUID_HOME}/hadoop-dependencies
-druid.extensions.loadList=["druid-kafka-indexing-service", "druid-histogram", "postgresql-metadata-storage"]
+druid.extensions.loadList=["druid-kafka-indexing-service", "druid-histogram", "postgresql-metadata-storage", "druid-s3-extensions"]
 
 # Zookeeper
 druid.zk.paths.base=/druid

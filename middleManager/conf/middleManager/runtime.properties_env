@@ -9,16 +9,24 @@ druid.worker.capacity=2
 druid.indexer.runner.startPort=7081
 
 # Processing
-druid.indexer.fork.property.druid.server.http.numThreads=10
-druid.indexer.fork.property.druid.processing.buffer.sizeBytes=1
-druid.indexer.fork.property.druid.processing.numThreads=262144000
+druid.indexer.fork.property.druid.server.http.numThreads=20
+druid.indexer.fork.property.druid.processing.buffer.sizeBytes=536870912
+druid.indexer.fork.property.druid.processing.numThreads=2
 
 # Logging
 druid.indexer.logs.type=s3
 druid.indexer.logs.s3Bucket=${S3_BUCKET}
 druid.indexer.logs.s3Prefix=druid-indexer-logs
 druid.monitoring.monitors=["com.metamx.metrics.JvmMonitor", "io.druid.server.metrics.EventReceiverFirehoseMonitor"]
+druid.indexer.fork.property.druid.monitoring.monitors=["com.metamx.metrics.JvmMonitor"]
+
+# Peon Deep Storage
+druid.indexer.fork.property.druid.storage.archiveBaseKey=druid
+druid.indexer.fork.property.druid.storage.archiveBucket=${S3_BUCKET}
+druid.indexer.fork.property.druid.storage.baseKey=druid
+druid.indexer.fork.property.druid.storage.bucket=${S3_BUCKET}
+druid.indexer.fork.property.druid.storage.type=s3
 
 # Peon
 druid.indexer.task.restoreTasksOnRestart=true
-druid.indexer.runner.javaOpts=-XX:MaxPermSize=256m -server -XX:+UseG1GC -Xmx512m -Xms512m -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -Djava.rmi.server.hostname=${DRUID_HOST} -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.port=8092 -Dcom.sun.management.jmxremote.local.only=false -Djava.net.preferIPv4Stack=true -XX:MaxDirectMemorySize=512m 
+druid.indexer.runner.javaOpts=-server -Xmx1g -Xms1g -XX:MaxGCPauseMillis=100 -XX:MaxDirectMemorySize=2g -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -Djava.net.preferIPv4Stack=true -Duser.timezone=UTC -Dfile.encoding=UTF-8
