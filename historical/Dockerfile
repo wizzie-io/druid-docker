@@ -13,5 +13,6 @@ RUN rm -f -r ${DRUID_HOME}/conf/*
 COPY historical/conf/ ${DRUID_HOME}/conf
 COPY conf ${DRUID_HOME}/conf/
 COPY druid-start.sh /usr/bin/
+COPY historical/historicalOk.sh /usr/bin/
 
 CMD druid-start.sh
