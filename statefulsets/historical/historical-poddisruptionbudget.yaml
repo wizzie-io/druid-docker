@@ -1,0 +1,9 @@
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: historical-budget
+spec:
+  selector:
+    matchLabels:
+      app: historical
+  minAvailable: 1
