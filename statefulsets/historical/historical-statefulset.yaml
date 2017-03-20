@@ -87,7 +87,7 @@ spec:
         readinessProbe:
           exec:
             command:
-            - sh
+            - bash
             - -c 
             - /usr/bin/historicalOk.sh
           initialDelaySeconds: 15
