@@ -15,12 +15,12 @@ spec:
     spec:
       containers:
       - name: druid-middlemanager
-        image: gcr.io/stream-150408/druid-middlemanager:0.9.1.1-26
+        image: gcr.io/pcasares-163609/druid-middlemanager:0.9.1.1-26
         ports:
         - containerPort: 8084
         env:
           - name: ZOOKEEPER_SERVER
-            value: kafka-zoo-svc:2181
+            value: zookeeper-svc:2181
           - name: PSQL_SERVER
             value: postgresql
           - name: PSQL_USER

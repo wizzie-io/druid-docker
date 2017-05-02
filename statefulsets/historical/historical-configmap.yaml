@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: historical-config
 data:
-  zookeeper_server: kafka-zoo-svc:2181
+  zookeeper_server: zookeeper-svc:2181
   psql_server: postgresql
   psql_user: ""
   psql_password: ""

@@ -30,7 +30,7 @@ spec:
       containers:
       - name: k8shistorical
         imagePullPolicy: Always
-        image: gcr.io/mi-proyecto-155915/druid-historical:latest
+        image: gcr.io/pcasares-163609/druid-historical:0.9.1.1-26
         resources:
           requests:
             memory: "1Gi"
