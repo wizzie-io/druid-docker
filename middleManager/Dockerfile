@@ -2,6 +2,7 @@ FROM openjdk:8-jdk
 
 ENV DRUID_SERVICE middleManager
 ENV DRUID_JVM_ARGS -Xmx64m -Xms64m -XX:+UseConcMarkSweepGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -Duser.timezone=UTC -Dfile.encoding=UTF-8
+ENV LOG_LEVEL info
 RUN apt-get update
 RUN apt-get install -y curl gettext-base
 RUN curl http://static.druid.io/artifacts/releases/druid-0.9.1.1-bin.tar.gz > /opt/druid-0.9.1.1-bin.tar.gz
