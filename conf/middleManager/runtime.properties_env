@@ -1,0 +1,26 @@
+# General
+druid.service=${DRUID_SERVICE}
+druid.host=${DRUID_HOST}
+druid.worker.ip=${DRUID_HOST}
+druid.port=8091
+
+# Indexing
+druid.worker.capacity=2
+druid.indexer.runner.startPort=7081
+
+# Processing
+druid.indexer.fork.property.druid.server.http.numThreads=20
+druid.indexer.fork.property.druid.processing.buffer.sizeBytes=536870912
+druid.indexer.fork.property.druid.processing.numThreads=2
+
+# Logging
+druid.monitoring.monitors=["com.metamx.metrics.JvmMonitor", "io.druid.server.metrics.EventReceiverFirehoseMonitor"]
+druid.indexer.fork.property.druid.monitoring.monitors=["com.metamx.metrics.JvmMonitor"]
+
+# Peon Deep Storage
+druid.indexer.fork.property.druid.storage.type=local
+druid.indexer.fork.property.druid.storage.storageDirectory=var/druid/segments
+
+# Peon
+druid.indexer.task.restoreTasksOnRestart=true
+druid.indexer.runner.javaOpts=${JVM_PEONS_ARGS}

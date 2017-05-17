@@ -1,0 +1,5 @@
+# General
+druid.service=${DRUID_SERVICE}
+druid.host=${DRUID_HOST}
+druid.port=8081
+druid.coordinator.startDelay=PT60S

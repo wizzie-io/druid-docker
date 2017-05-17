@@ -3,9 +3,9 @@ druid.selectors.indexing.serviceName=overlord
 druid.selectors.coordinator.serviceName=coordinator
 
 # Extensions
-druid.extensions.directory=${DRUID_HOME}/extensions
-druid.extensions.hadoopDependenciesDir=${DRUID_HOME}/hadoop-dependencies
-druid.extensions.loadList=["druid-kafka-indexing-service", "druid-histogram", "postgresql-metadata-storage", "druid-s3-extensions"]
+druid.extensions.directory=/opt/druid/extensions
+druid.extensions.hadoopDependenciesDir=/opt/druid/hadoop-dependencies
+druid.extensions.loadList=["druid-kafka-indexing-service"]
 
 # Zookeeper
 druid.zk.paths.base=/druid
@@ -16,22 +16,11 @@ druid.emitter=logging
 druid.emitter.logging.logLevel=info
 
 # Metadata Storage
-druid.metadata.storage.type=postgresql
-druid.metadata.storage.connector.connectURI=jdbc:postgresql://${PSQL_SERVER}/druid
-druid.metadata.storage.connector.user=${PSQL_USER}
-druid.metadata.storage.connector.password=${PSQL_PASSWORD}
-
-# Caching
-druid.cache.type=memcached
-druid.cache.hosts=${MEMCACHED_SERVER}
-druid.cache.expiration=86400
-druid.cache.memcachedPrefix=druid
+druid.metadata.storage.type=derby
+druid.metadata.storage.connector.connectURI=jdbc:derby://localhost:1527/var/druid/metadata.db;create=true
+druid.metadata.storage.connector.host=localhost
+druid.metadata.storage.connector.port=1527
 
 # Deep Storage
-druid.storage.type=s3
-druid.s3.accessKey=${S3_ACCESS_KEY}
-druid.s3.secretKey=${S3_SECRET_KEY}
-druid.storage.bucket=${S3_BUCKET}
-druid.storage.baseKey=druid
-druid.storage.archiveBucket=${S3_BUCKET}
-druid.storage.archiveBaseKey=druid-indexing-tasks
+druid.storage.type=local
+druid.storage.storageDirectory=var/druid/segments
