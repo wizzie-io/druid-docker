@@ -13,7 +13,7 @@ druid.zk.service.host=${ZOOKEEPER_SERVER}
 
 # Logging
 druid.emitter=logging
-druid.emitter.logging.logLevel=info
+druid.emitter.logging.logLevel=${LOG_LEVEL}
 
 # Metadata Storage
 druid.metadata.storage.type=derby
