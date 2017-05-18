@@ -1,0 +1,9 @@
+# General
+druid.service=${DRUID_SERVICE}
+druid.host=${DRUID_HOST}
+druid.port=8084
+
+# Indexing
+druid.indexer.runner.type=remote
+druid.indexer.storage.type=metadata
+druid.indexer.runner.startPort=7081

@@ -10,7 +10,7 @@
     </Appenders>
 
     <Loggers>
-        <Root level="info">
+        <Root level="${LOG_LEVEL}">
             <AppenderRef ref="STDOUT"/>
             <AppenderRef ref="Druid"/>
         </Root>

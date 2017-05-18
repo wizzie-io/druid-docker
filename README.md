@@ -1,18 +1,20 @@
+# Druid Docker
 
+The druid docker by default use derby metadata-storage and local deep storage. You can change it, to do it you could mount a volume with the new configuration into the folder `/opt/druid/conf`.
 
+## Enviroments
 
-## Common
-ZOOKEEPER_SERVER
-PSQL_SERVER
-PSQL_USER
-PSQL_PASSWORD
-MEMCACHED_SERVER
-S3_ACCESS_KEY
-S3_SECRET_KEY
-S3_BUCKET
+* **ZOOKEEPER_SERVER**
+The zookeeper server address.
 
-## Coordinator
-DRUID_HOST
+* **DRUID_HOST**
+The advertiser address that uses druid to expose the service on zookeeper.
 
-## Broker
-DRUID_HOST
+* **DRUID_JVM_ARGS**
+The JVM arguments to execute the druid services.
+
+## Example
+
+```
+docker run -it -e ZOOKEEPER_SERVER=192.168.0.102 -e DRUID_HOST=192.168.0.102 druid-coordinator:latest
+```
