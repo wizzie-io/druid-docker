@@ -1,11 +1,11 @@
-VERSION=latest
+VERSION=0.10.0
 .PHONY: broker coordinator overlord middlemanager historical
 
 all: broker coordinator overlord middlemanager historical
 
 druid_build = docker build -f "$(1)/Dockerfile" -t druid-$(1):$(VERSION) .; \
 	docker tag druid-$(1):$(VERSION) gcr.io/wizzie-registry/druid-$(1):$(VERSION); \
-#	gcloud docker -- push gcr.io/wizzie-registry/druid-$(1):$(VERSION)
+	gcloud docker -- push gcr.io/wizzie-registry/druid-$(1):$(VERSION)
 
 broker:
 	$(call druid_build,broker)
