@@ -10,6 +10,8 @@ RUN tar -xvf /opt/druid-0.10.0-bin.tar.gz -C /opt/ && rm -f /opt/druid-0.10.0-bi
 RUN mv /opt/druid-0.10.0 /opt/druid && mkdir -p /var/log/druid
 RUN rm -f -r /opt/druid/conf /opt/druid/conf-quickstart
 
+RUN cd /opt/druid && java -cp "lib/*" -Ddruid.extensions.directory="extensions" -Ddruid.extensions.hadoopDependenciesDir="hadoop-dependencies" io.druid.cli.Main tools pull-deps --no-default-hadoop -c "io.druid.extensions.contrib:druid-google-extensions:0.10.0"
+
 COPY conf /opt/druid/conf
 COPY druid-start.sh /usr/bin/
 
