@@ -7,7 +7,3 @@ druid.port=8084
 druid.indexer.runner.type=remote
 druid.indexer.storage.type=metadata
 druid.indexer.runner.startPort=7081
-
-druid.indexer.logs.s3Bucket=${S3_BUCKET}
-druid.indexer.logs.s3Prefix=druid-indexer-logs
-druid.indexer.logs.type=s3

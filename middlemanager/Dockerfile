@@ -1,7 +1,8 @@
 FROM openjdk:8-jdk
 
-ENV DRUID_SERVICE historical
-ENV DRUID_JVM_ARGS -server -Xms2g -Xmx2g -XX:MaxDirectMemorySize=3g -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -XX:NewSize=1g -XX:MaxNewSize=1g -XX:+UseConcMarkSweepGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps
+ENV DRUID_SERVICE middleManager
+ENV DRUID_JVM_ARGS -server -Xms64m -Xmx64m -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager
+ENV JVM_PEONS_ARGS -server -Xmx1g -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:MaxDirectMemorySize=2g
 ENV LOG_LEVEL info
 RUN apt-get update
 RUN apt-get install -y curl gettext-base
@@ -14,6 +15,5 @@ RUN cd /opt/druid && java -cp "lib/*" -Ddruid.extensions.directory="extensions" 
 
 COPY conf /opt/druid/conf
 COPY druid-start.sh /usr/bin/
-COPY historical/historicalOk.sh /usr/bin/
 
 CMD druid-start.sh

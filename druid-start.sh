@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-envsubst < ${DRUID_HOME}/conf/_common/common.runtime.properties_env > ${DRUID_HOME}/conf/_common/common.runtime.properties
-envsubst < ${DRUID_HOME}/conf/_common/log4j2.xml_env > ${DRUID_HOME}/conf/_common/log4j2.xml
-envsubst < ${DRUID_HOME}/conf/${DRUID_SERVICE}/runtime.properties_env > ${DRUID_HOME}/conf/${DRUID_SERVICE}/runtime.properties
-
-rm -f ${DRUID_HOME}/conf/_common/common.runtime.properties_env ${DRUID_HOME}/conf/_common/log4j2.xml_env ${DRUID_HOME}/conf/${DRUID_SERVICE}/runtime.properties_env
-
-java ${DRUID_JVM_ARGS} -cp ${DRUID_HOME}/conf/_common:${DRUID_HOME}/conf/${DRUID_SERVICE}:${DRUID_HOME}/lib/* io.druid.cli.Main server ${DRUID_SERVICE}
+envsubst < /opt/druid/conf/_common/common.runtime.properties_env > /opt/druid/conf/_common/common.runtime.properties
+envsubst < /opt/druid/conf/_common/log4j2.xml_env > /opt/druid/conf/_common/log4j2.xml
+envsubst < /opt/druid/conf/_common/jets3t.properties_env > /opt/druid/conf/_common/jets3t.properties
+envsubst < /opt/druid/conf/${DRUID_SERVICE}/runtime.properties_env > /opt/druid/conf/${DRUID_SERVICE}/runtime.properties
+java ${DRUID_JVM_ARGS} -cp /opt/druid/conf/_common:/opt/druid/conf/${DRUID_SERVICE}:/opt/druid/lib/* io.druid.cli.Main server ${DRUID_SERVICE}
