@@ -1,4 +1,4 @@
-VERSION=0.10.0
+VERSION=0.11.0
 .PHONY: broker coordinator overlord middlemanager historical
 
 all: broker coordinator overlord middlemanager historical
@@ -16,7 +16,7 @@ coordinator:
 overlord:
 	$(call druid_build,overlord)
 
-middlemanager:
+middleManager:
 	$(call druid_build,middlemanager)
 
 historical:
