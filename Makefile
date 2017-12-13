@@ -16,7 +16,7 @@ coordinator:
 overlord:
 	$(call druid_build,overlord)
 
-middleManager:
+middlemanager:
 	$(call druid_build,middlemanager)
 
 historical:
