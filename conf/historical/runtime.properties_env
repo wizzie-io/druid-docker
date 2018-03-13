@@ -1,11 +1,11 @@
 # General
 druid.service=${DRUID_SERVICE}
 druid.host=${DRUID_HOST}
-druid.port=8083
+druid.port=${DRUID_SERVICE_PORT}
 druid.server.http.numThreads=10
 
-druid.server.maxSize=10737418240
-druid.segmentCache.locations=[{"path": "/tmp", "maxSize": 10737418240}]
+druid.server.maxSize=5368709120
+druid.segmentCache.locations=[{"path": "/opt/druid/data", "maxSize": 5368709120}]
 
 druid.historical.cache.useCache=true
 druid.historical.cache.populateCache=true

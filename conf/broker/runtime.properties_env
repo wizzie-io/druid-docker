@@ -1,9 +1,9 @@
 # General
 druid.service=${DRUID_SERVICE}
 druid.host=${DRUID_HOST}
-druid.port=8080
+druid.port=${DRUID_SERVICE_PORT}
 
-# HTTP 
+# HTTP
 druid.server.http.numThreads=10
 druid.broker.http.numConnections=5
 
