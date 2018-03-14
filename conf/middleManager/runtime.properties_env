@@ -2,7 +2,7 @@
 druid.service=${DRUID_SERVICE}
 druid.host=${DRUID_HOST}
 druid.worker.ip=${DRUID_HOST}
-druid.port=8091
+druid.port=${DRUID_SERVICE_PORT}
 
 # Indexing
 druid.worker.capacity=2
