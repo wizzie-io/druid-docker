@@ -36,7 +36,7 @@ The service port where bind the druid service.
 The JVM arguments to execute the druid services.
 
 * **DRUID_PULL_EXTENSION**
-The druid extension to download, this download is perform on running time. You need to pass the extension with whitespace: `extension1:extension1:version extension2:extension2:version`
+The druid extension to download, this download is performed at running time. You need to pass the extension with whitespace: `extension1:extension1:version extension2:extension2:version`
 
 ## Examples
 
