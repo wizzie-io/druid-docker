@@ -18,7 +18,7 @@ docker build --build-arg DRUID_VERSION=0.11.0 -t druid:latest .
 
 The druid docker by default use derby metadata-storage and local deep storage. You can change it, to do it you could mount a volume with the new configuration into the folder `/opt/druid/conf`.
 
-## Enviroments
+## Environments
 
 * **ZOOKEEPER_SERVER**
 The zookeeper server address.
