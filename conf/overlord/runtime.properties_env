@@ -1,7 +1,7 @@
 # General
 druid.service=${DRUID_SERVICE}
 druid.host=${DRUID_HOST}
-druid.port=8084
+druid.port=${DRUID_SERVICE_PORT}
 
 # Indexing
 druid.indexer.runner.type=remote
