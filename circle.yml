@@ -9,17 +9,6 @@ machine:
 dependencies:
   override:
     - mvn -Dmaven.test.skip=true install
-
-test:
-  override:
-    - sudo mkdir -p /var/log/ks-cep/ && sudo chown -R ubuntu:ubuntu /var/log/ks-cep/
-    - mvn clean test
-  post:
-    - mvn package -Dmaven.test.skip=true -P dist
-    - cp distribution/target/zz-cep-dist.tar.gz $CIRCLE_ARTIFACTS/
-    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-
 deployment:
   master:
     branch: master
