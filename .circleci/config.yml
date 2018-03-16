@@ -28,7 +28,7 @@ jobs:
       - persist_to_workspace:
           root: caches
           <<: *cached
-  master-deploy:
+  deploy:
     <<: *preconfiguration
     steps:
       - attach_workspace:
@@ -58,9 +58,9 @@ jobs:
             echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
             gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
             gcloud config set project $GCLOUD_PROJECT
-            docker tag ${APP_NAME}:latest gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:latest
-            gcloud docker -- push gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:latest
-            gcloud container images add-tag gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:latest gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:${CIRCLE_TAG}
+            docker tag ${APP_NAME}:latest gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:stable
+            gcloud docker -- push gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:stable
+            gcloud container images add-tag gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:stable gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:${CIRCLE_TAG}
 workflows:
   version: 2
   build-n-deploy:
@@ -69,14 +69,9 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - master-deploy:
+      - deploy:
           requires:
             - build
-          filters:
-            branches:
-              only: master
-            tags:
-              ignore: /.*/
       - tagged-deploy:
           requires:
             - build
