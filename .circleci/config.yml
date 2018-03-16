@@ -1,7 +1,7 @@
 preconfiguration: &preconfiguration
   working_directory: /druid
   docker:
-    - image google/cloud-sdk:latest
+    - image: google/cloud-sdk:latest
 
 
 version: 2
