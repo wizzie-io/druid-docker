@@ -49,7 +49,7 @@ workflows:
       - build:
           filters:
             branches:
-              only: master 
+              only: master
             tags:
               ignore: /.*/
       - master-deploy:
