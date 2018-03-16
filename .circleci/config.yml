@@ -9,7 +9,7 @@ image: &cached
     paths:
       - druid-docker.tar
 workspace: &workspace
-  at: /druid-docker/caches
+    at: /druid-docker/caches
 
 version: 2
 jobs:
@@ -30,7 +30,8 @@ jobs:
   master-deploy:
     <<: *preconfiguration
     steps:
-      - attach_workspace: &workspace
+      - attach_workspace:
+        <<: *workspace
       - deploy:
           name: Tag master and deploy
           command: |
