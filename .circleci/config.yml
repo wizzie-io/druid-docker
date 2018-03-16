@@ -31,7 +31,7 @@ jobs:
     <<: *preconfiguration
     steps:
       - attach_workspace:
-        <<: *workspace
+          <<: *workspace
       - deploy:
           name: Tag master and deploy
           command: |
