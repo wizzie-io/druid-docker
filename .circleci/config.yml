@@ -11,6 +11,7 @@ image: &cached
 workspace: &workspace
     at: /druid-docker/caches
 
+
 version: 2
 jobs:
   build:
@@ -66,6 +67,9 @@ workflows:
   build-n-deploy:
     jobs:
       - build
+          filters:
+            tags:
+              only: /.*/
       - master-deploy:
           requires:
             - build
