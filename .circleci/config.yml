@@ -50,7 +50,7 @@ jobs:
           <<: *workspace
       - setup_remote_docker
       - deploy:
-          name: Tag with git tag and deploy
+          name: Tag with latest and git tag and deploy both
           command: |
             set +o pipefail
             docker load -i /${APP_NAME}/caches/${APP_NAME}.tar | true
