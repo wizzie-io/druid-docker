@@ -6,8 +6,8 @@ preconfiguration: &preconfiguration
     - APP_NAME: "druid-docker"
 
 image: &cached
-  paths:
-    - druid-docker.tar
+    paths:
+      - druid-docker.tar
 workspace: &workspace
   at: /druid-docker/caches
 
