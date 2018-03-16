@@ -11,6 +11,7 @@ image: &cached
 workspace: &workspace
     at: /druid-docker/caches
 
+
 version: 2
 jobs:
   build:
