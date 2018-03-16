@@ -2,7 +2,8 @@ preconfiguration: &preconfiguration
   working_directory: /druid
   docker:
     - image: google/cloud-sdk:latest
-
+  environment: 
+    - APP_NAME: "druid-docker"
 version: 2
 jobs:
   build:
