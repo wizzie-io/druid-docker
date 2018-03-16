@@ -68,8 +68,6 @@ workflows:
     jobs:
       - build
           filters:
-            branches:
-              only: /.*/
             tags:
               only: /.*/
       - master-deploy:
