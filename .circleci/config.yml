@@ -6,6 +6,7 @@ preconfiguration: &preconfiguration
     - APP_NAME: "druid-docker"
 
 workspace-persist: &workspace
+  root: caches
   paths:
     - druid-docker.tar
 workspace: &workspace
