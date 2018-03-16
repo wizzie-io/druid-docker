@@ -58,10 +58,12 @@ jobs:
             gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
             gcloud config set project $GCLOUD_PROJECT
             docker tag ${APP_NAME}:latest gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:${CIRCLE_TAG}
+            docker tag ${APP_NAME}:latest gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:latest
+            gcloud docker -- push gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:latest
             gcloud docker -- push gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:${CIRCLE_TAG}
 workflows:
   version: 2
-  master-build-n-deploy:
+  build-n-deploy:
     jobs:
       - build
       - master-deploy:
@@ -72,17 +74,6 @@ workflows:
               only: master
             tags:
               ignore: /.*/
-  tagged-build-n-deploy:
-    jobs:
-      - build
-      - master-deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /.*/
       - tagged-deploy:
           requires:
             - build
