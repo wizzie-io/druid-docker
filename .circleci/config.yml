@@ -46,15 +46,7 @@ workflows:
   version: 2
   master-build-n-deploy:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: master
+      - build
       - master-deploy:
           requires:
             - build
-          filters:
-            branches:
-              only: master
-            tags:
-              ignore: /.*/
