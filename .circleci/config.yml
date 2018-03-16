@@ -1,9 +1,16 @@
 preconfiguration: &preconfiguration
-  working_directory: /druid
+  working_directory: /druid-docker
   docker:
     - image: google/cloud-sdk:latest
   environment: 
     - APP_NAME: "druid-docker"
+
+docker-image: &image
+  paths:
+    - druid-docker.tar
+workspace: &workspace
+  at: /druid-docker/caches
+
 version: 2
 jobs:
   build:
@@ -19,13 +26,11 @@ jobs:
             docker save -o caches/${APP_NAME}.tar ${APP_NAME}
       - persist_to_workspace:
           root: caches
-          paths: 
-            - ${APP_NAME}.tar
+          paths: *image
   master-deploy:
     <<: *preconfiguration
     steps:
-      - attach_workspace:
-          at: /${APP_NAME}/caches
+      - attach_workspace: &workspace
       - deploy:
           name: Tag master and deploy
           command: |
