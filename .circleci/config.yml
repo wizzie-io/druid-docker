@@ -26,7 +26,7 @@ jobs:
             docker save -o caches/${APP_NAME}.tar ${APP_NAME}
       - persist_to_workspace:
           root: caches
-          <<: *image
+          <<: *cached
   master-deploy:
     <<: *preconfiguration
     steps:
