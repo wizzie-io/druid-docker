@@ -32,6 +32,7 @@ jobs:
     steps:
       - attach_workspace:
           <<: *workspace
+      - setup_remote_docker
       - deploy:
           name: Tag master and deploy
           command: |
@@ -42,6 +43,22 @@ jobs:
             gcloud config set project $GCLOUD_PROJECT
             docker tag ${APP_NAME}:latest gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:latest
             gcloud docker -- push gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:latest
+  tagged-deploy:
+    <<: *preconfiguration
+    steps:
+      - attach_workspace:
+          <<: *workspace
+      - setup_remote_docker
+      - deploy:
+          name: Tag with git tag and deploy
+          command: |
+            set +o pipefail
+            docker load -i /${APP_NAME}/caches/${APP_NAME}.tar | true
+            echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+            gcloud config set project $GCLOUD_PROJECT
+            docker tag ${APP_NAME}:latest gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:${CIRCLE_TAG}
+            gcloud docker -- push gcr.io/${GCLOUD_PROJECT}/${APP_NAME}:${CIRCLE_TAG}
 workflows:
   version: 2
   master-build-n-deploy:
@@ -50,3 +67,27 @@ workflows:
       - master-deploy:
           requires:
             - build
+          filters:
+            branches:
+              only: master
+            tags:
+              ignore: /.*/
+  tagged-build-n-deploy:
+    jobs:
+      - build
+      - master-deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
+      - tagged-deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
