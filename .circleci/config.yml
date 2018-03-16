@@ -34,7 +34,6 @@ jobs:
           name: Push application Docker image
           command: |
             echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
-            gcloud --quiet components update
             gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
             gcloud config set project $GCLOUD_PROJECT
             docker tag app:latest gcr.io/wizzie-registry/druid-docker:latest
