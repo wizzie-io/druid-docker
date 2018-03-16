@@ -50,8 +50,8 @@ workflows:
           filters:
             branches:
               only: master 
-	    tags:
-	      ignore: /.*/
+            tags:
+              ignore: /.*/
       - master-deploy:
           requires:
             - build
