@@ -5,8 +5,7 @@ preconfiguration: &preconfiguration
   environment: 
     - APP_NAME: "druid-docker"
 
-workspace-persist: &workspace
-  root: caches
+image: &cached
   paths:
     - druid-docker.tar
 workspace: &workspace
@@ -25,7 +24,9 @@ jobs:
             docker build -t ${APP_NAME} .
             mkdir -p caches
             docker save -o caches/${APP_NAME}.tar ${APP_NAME}
-      - persist_to_workspace: *workspace
+      - persist_to_workspace:
+          root: caches
+          <<: *image
   master-deploy:
     <<: *preconfiguration
     steps:
