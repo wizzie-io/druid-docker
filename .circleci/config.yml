@@ -18,8 +18,8 @@ jobs:
             mkdir -p caches
             docker save -o caches/druid.tar druid
       - persist_to_workspace:
-          - root: caches
-          - paths: 
+          root: caches
+          paths: 
               - druid.tar
   master-deploy:
     <<: *preconfiguration
