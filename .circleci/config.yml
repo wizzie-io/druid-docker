@@ -7,7 +7,7 @@ preconfiguration: &preconfiguration
 
 image: &cached
     paths:
-      - druid-docker.tar
+      - druid.tar
 workspace: &workspace
     at: /druid-docker/caches
 
