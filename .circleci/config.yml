@@ -3,7 +3,7 @@ preconfiguration: &preconfiguration
   docker:
     - image: google/cloud-sdk:latest
   environment: 
-    - APP_NAME: "druid-docker"
+    - APP_NAME: "druid"
 
 image: &cached
     paths:
