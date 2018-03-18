@@ -38,7 +38,7 @@ jobs:
           name: Tag master and deploy
           command: |
             set +o pipefail
-            docker load -i /${APP_NAME}/caches/${APP_NAME}.tar | true
+            docker load -i /druid-docker/caches/${APP_NAME}.tar | true
             echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
             gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
             gcloud config set project $GCLOUD_PROJECT
@@ -54,7 +54,7 @@ jobs:
           name: Tag with latest and git tag and deploy both
           command: |
             set +o pipefail
-            docker load -i /${APP_NAME}/caches/${APP_NAME}.tar | true
+            docker load -i /druid-docker/caches/${APP_NAME}.tar | true
             echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
             gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
             gcloud config set project $GCLOUD_PROJECT
