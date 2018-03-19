@@ -72,6 +72,9 @@ workflows:
       - deploy:
           requires:
             - build
+          filters:
+            branches:
+              only: master
       - tagged-deploy:
           requires:
             - build
