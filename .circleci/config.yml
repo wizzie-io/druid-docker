@@ -1,15 +1,15 @@
 preconfiguration: &preconfiguration
-  working_directory: /druid-docker
+  working_directory: /druid
   docker:
     - image: google/cloud-sdk:latest
   environment: 
-    - APP_NAME: "druid-docker"
+    - APP_NAME: "druid"
 
 image: &cached
     paths:
-      - druid-docker.tar
+      - druid.tar
 workspace: &workspace
-    at: /druid-docker/caches
+    at: /druid/caches
 
 
 version: 2
