@@ -43,29 +43,29 @@ The druid extension to download, this download is performed at running time. You
 * **Coordinator**
 
 ```
-docker run -it -e ZOOKEEPER_SERVER=192.168.0.102 -e DRUID_SERVICE=coordinator -e DRUID_HOST=192.168.0.102 -e DRUID_SERVICE_PORT=8081 -e DRUID_JVM_ARGS="-server -Xms256m -Xmx256m -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -Dderby.stream.error.file=var/druid/derby.log"
+docker run -it -e ZOOKEEPER_SERVER=192.168.0.102 -e DRUID_SERVICE=coordinator -e DRUID_HOST=192.168.0.102 -e DRUID_SERVICE_PORT=8081 -e DRUID_JVM_ARGS="-server -Xms256m -Xmx256m -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -Dderby.stream.error.file=var/druid/derby.log" druid:latest
 ```
 
 * **Broker**
 
 ```
-docker run -it -e ZOOKEEPER_SERVER=192.168.0.102 -e DRUID_SERVICE=broker -e DRUID_HOST=192.168.0.102 -e DRUID_SERVICE_PORT=8080 -e DRUID_JVM_ARGS="-server -Xms6g -Xmx6g -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -XX:NewSize=512m -XX:MaxNewSize=512m -XX:MaxDirectMemorySize=6g -XX:+UseG1GC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps"
+docker run -it -e ZOOKEEPER_SERVER=192.168.0.102 -e DRUID_SERVICE=broker -e DRUID_HOST=192.168.0.102 -e DRUID_SERVICE_PORT=8080 -e DRUID_JVM_ARGS="-server -Xms6g -Xmx6g -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -XX:NewSize=512m -XX:MaxNewSize=512m -XX:MaxDirectMemorySize=6g -XX:+UseG1GC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps" druid:latest
 ```
 
 * **Historical**
 
 ```
-docker run -it -e ZOOKEEPER_SERVER=192.168.0.102 -e DRUID_SERVICE=historical -e DRUID_HOST=192.168.0.102 -e DRUID_SERVICE_PORT=8081 -e DRUID_JVM_ARGS="-server -Xms2g -Xmx2g -XX:MaxDirectMemorySize=3g -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -XX:NewSize=1g -XX:MaxNewSize=1g -XX:+UseConcMarkSweepGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps"
+docker run -it -e ZOOKEEPER_SERVER=192.168.0.102 -e DRUID_SERVICE=historical -e DRUID_HOST=192.168.0.102 -e DRUID_SERVICE_PORT=8081 -e DRUID_JVM_ARGS="-server -Xms2g -Xmx2g -XX:MaxDirectMemorySize=3g -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -XX:NewSize=1g -XX:MaxNewSize=1g -XX:+UseConcMarkSweepGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps" druid:latest
 ```
 
 * **Overlord**
 
 ```
-docker run -it -e ZOOKEEPER_SERVER=192.168.0.102 -e DRUID_SERVICE=overlord -e DRUID_HOST=192.168.0.102 -e DRUID_SERVICE_PORT=8084 -e DRUID_JVM_ARGS="-server -Xms256m -Xmx256m -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager"
+docker run -it -e ZOOKEEPER_SERVER=192.168.0.102 -e DRUID_SERVICE=overlord -e DRUID_HOST=192.168.0.102 -e DRUID_SERVICE_PORT=8084 -e DRUID_JVM_ARGS="-server -Xms256m -Xmx256m -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager" druid:latest
 ```
 
 * **MiddleManager**
 
 ```
-docker run -it -e ZOOKEEPER_SERVER=192.168.0.102 -e DRUID_SERVICE=middleManager -e DRUID_HOST=192.168.0.102 -e DRUID_SERVICE_PORT=8091 -e DRUID_JVM_ARGS="-server -Xms64m -Xmx64m -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager"
+docker run -it -e ZOOKEEPER_SERVER=192.168.0.102 -e DRUID_SERVICE=middleManager -e DRUID_HOST=192.168.0.102 -e DRUID_SERVICE_PORT=8091 -e DRUID_JVM_ARGS="-server -Xms64m -Xmx64m -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager" druid:latest
 ```
