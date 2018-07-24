@@ -1,6 +1,6 @@
-# Druid Docker
-
 ![](http://www.malinga.me/wp-content/uploads/2017/08/Druid_MasterLogo_Full-ColorTransparent.png)
+
+# Druid Docker
 
 ## Build
 
