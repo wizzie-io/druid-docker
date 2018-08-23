@@ -4,19 +4,20 @@ druid.host=${DRUID_HOST}
 druid.port=${DRUID_SERVICE_PORT}
 
 # HTTP
-druid.server.http.numThreads=10
 druid.broker.http.numConnections=5
+druid.server.http.numThreads=9
 
 druid.broker.cache.useCache=true
 druid.broker.cache.populateCache=true
-druid.broker.cache.unCacheable=["select"]
+druid.cache.type=local
+druid.cache.sizeInBytes=10000000
 
 # Logging
 druid.monitoring.monitors=["io.druid.client.cache.CacheMonitor", "com.metamx.metrics.JvmMonitor"]
 
 # Processing
-druid.processing.numThreads=3
-druid.processing.buffer.sizeBytes=1073741824
+druid.processing.numThreads=2
+druid.processing.buffer.sizeBytes=256000000
 
 # Queries
 druid.query.groupBy.singleThreaded=false
