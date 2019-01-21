@@ -14,6 +14,7 @@ druid.zk.service.host=${ZOOKEEPER_SERVER}
 # Logging
 druid.emitter=logging
 druid.emitter.logging.logLevel=${LOG_LEVEL}
+druid.startup.logging.logProperties=true
 
 # Metadata Storage
 druid.metadata.storage.type=derby
@@ -21,6 +22,25 @@ druid.metadata.storage.connector.connectURI=jdbc:derby://localhost:1527/var/drui
 druid.metadata.storage.connector.host=localhost
 druid.metadata.storage.connector.port=1527
 
+# Service discovery
+druid.selectors.indexing.serviceName=druid/overlord
+druid.selectors.coordinator.serviceName=druid/coordinator
+
+# Indexing service logs
+druid.indexer.logs.type=file
+druid.indexer.logs.directory=var/druid/indexing-logs
+
+# Monitoring
+druid.monitoring.monitors=["org.apache.druid.java.util.metrics.JvmMonitor"]
+druid.emitter=logging
+druid.emitter.logging.logLevel=info
+
 # Deep Storage
 druid.storage.type=local
 druid.storage.storageDirectory=var/druid/segments
+
+# Security
+druid.server.hiddenProperties=["druid.s3.accessKey","druid.s3.secretKey","druid.metadata.storage.connector.password"]
+
+# SQL
+druid.sql.enable=true

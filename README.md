@@ -40,6 +40,9 @@ The JVM arguments to execute the druid services.
 * **DRUID_PULL_EXTENSION**
 The druid extension to download, this download is performed at running time. You need to pass the extension with whitespace: `extension1:extension1:version extension2:extension2:version`
 
+* **AWS_REGION**
+AWS region this is needed to work with AWS S3 extension.
+
 ## Examples
 
 * **Coordinator**
