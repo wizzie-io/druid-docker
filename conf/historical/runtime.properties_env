@@ -1,7 +1,8 @@
 # General
 druid.service=${DRUID_SERVICE}
 druid.host=${DRUID_HOST}
-druid.port=${DRUID_SERVICE_PORT}
+druid.plaintextPort=${DRUID_SERVICE_PORT}
+
 druid.server.http.numThreads=9
 
 druid.server.maxSize=5368709120
@@ -13,4 +14,3 @@ druid.monitoring.monitors=["io.druid.client.cache.CacheMonitor", "com.metamx.met
 # Processing
 druid.processing.buffer.sizeBytes=256000000
 druid.processing.numThreads=2
-druid.query.topN.minTopNThreshold=100

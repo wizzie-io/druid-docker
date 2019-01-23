@@ -2,15 +2,17 @@
 druid.service=${DRUID_SERVICE}
 druid.host=${DRUID_HOST}
 druid.worker.ip=${DRUID_HOST}
-druid.port=${DRUID_SERVICE_PORT}
+druid.plaintextPort=${DRUID_SERVICE_PORT}
+
+# HTTP server threads
+druid.server.http.numThreads=9
 
 # Indexing
 druid.worker.capacity=2
 druid.indexer.runner.startPort=7081
 
 # Processing
-druid.indexer.fork.property.druid.server.http.numThreads=20
-druid.indexer.fork.property.druid.processing.buffer.sizeBytes=536870912
+druid.indexer.fork.property.druid.processing.buffer.sizeBytes=256000000
 druid.indexer.fork.property.druid.processing.numThreads=2
 
 # Logging

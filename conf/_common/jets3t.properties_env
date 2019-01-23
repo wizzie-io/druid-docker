@@ -1,2 +1,0 @@
-s3service.s3-endpoint=${S3_ENDPOINT}
-s3service.disable-dns-buckets=true
